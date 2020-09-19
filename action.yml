@@ -11,7 +11,8 @@ inputs:
     #description: "The fullname of repository (example: tomasdelvechio/actions-push-repo-to-subdir). Not include .git"
     #required: true
   target-repo-subdir-name:
-    description: "(optional) Subdir name on target repo. Default is repo name in lower-case"
+    description: "Subdir name on target repo"
+    required: true
 #outputs:
 #  time: # id of output
 #    description: 'The time we greeted you'
