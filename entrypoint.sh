@@ -23,9 +23,11 @@ CLONE_DIR=/tmp/$TARGET_REPOSITORY_PATH
 mkdir -p $CLONE_DIR
 git clone --depth 1 https://$API_TOKEN_GITHUB@github.com/$TARGET_REPOSITORY_PATH.git $CLONE_DIR &> /dev/null
 
+echo "Directory: $CLONE_DIR"
 cp -TR $REPO_SOURCE_PATH $CLONE_DIR/$SUBDIR_NAME
 cd $CLONE_DIR
 rm -rf $SUBDIR_NAME/.git $SUBDIR_NAME/.vscode
+git status
 git add .
 git commit -m 'auto sync of repo with tomasdelvechio/actions-push-repo-to-subdir'
 git push
