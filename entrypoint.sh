@@ -19,6 +19,8 @@ TARGET_SUBDIR_NAME=$2
 #ls -l $REPO_SOURCE_PATH
 SOURCE_PATH=$GITHUB_WORKSPACE/source-repo
 TARGET_PATH=$GITHUB_WORKSPACE/target-repo
+echo "SOURCE DIR: $SOURCE_PATH"
+echo "TARGET DIR: $TARGET_PATH"
 
 git config --global user.email "tomasdelvechio-actions-syn-repos@example.org"
 git config --global user.name "$GITHUB_USERNAME"
@@ -34,8 +36,7 @@ git config --global user.name "$GITHUB_USERNAME"
 cp -TR $SOURCE_PATH $TARGET_PATH/$TARGET_SUBDIR_NAME
 #cat $CLONE_DIR/$SUBDIR_NAME/index.html
 cd $TARGET_PATH
-rm -rf $TARGET_SUBDIR_NAME/.git $TARGET_SUBDIR_NAME/.vscode
-git status
+rm -rf $TARGET_SUBDIR_NAME/.git $TARGET_SUBDIR_NAME/.gitignore $TARGET_SUBDIR_NAME/.vscode
 git add .
 git commit -m 'auto sync of repo with tomasdelvechio/actions-push-repo-to-subdir'
 git push
