@@ -1,16 +1,22 @@
 # action.yml
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Sync a Repo like subdir of another'
+description: 'When you push in Repo A, this repo is copied and sync like subfolder to Repo B'
+author: 'Tomas Delvechio <tomasdelvechio17+github@gmail.com'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  github-username:
+    description: 'User of github'
     required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+    #default: 'World'
+  target-repository:
+    description: "The fullname of repository (example: tomasdelvechio/actions-push-repo-to-subdir). Not include .git"
+    required: true
+  target-repo-subdir-name:
+    description: "(optional) Subdir name on target repo. Default is repo name in lower-case"
+#outputs:
+#  time: # id of output
+#    description: 'The time we greeted you'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.github-username inputs.target-repository inputs.target-repo-subdir-name }}
