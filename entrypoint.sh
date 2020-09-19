@@ -14,6 +14,8 @@ DIRNAME="$(basename $(dirname $TARGET_REPOSITORY_PATH))"
 LOWER_DIRNAME="$(echo $DIRNAME | tr '[:upper:]' '[:lower:]')"
 SUBDIR_NAME="${3:-$LOWER_DIRNAME}"
 REPO_SOURCE_PATH=$(pwd)
+echo "Source directory: $REPO_SOURCE_PATH"
+ls -l $REPO_SOURCE_PATH
 
 git config --global user.email "tomasdelvechio-actions-syn-repos@example.org"
 git config --global user.name "$GITHUB_USERNAME"
@@ -25,6 +27,7 @@ git clone --depth 1 https://$API_TOKEN_GITHUB@github.com/$TARGET_REPOSITORY_PATH
 
 echo "Directory: $CLONE_DIR"
 cp -TR $REPO_SOURCE_PATH $CLONE_DIR/$SUBDIR_NAME
+cat $CLONE_DIR/$SUBDIR_NAME/index.html
 cd $CLONE_DIR
 rm -rf $SUBDIR_NAME/.git $SUBDIR_NAME/.vscode
 git status
