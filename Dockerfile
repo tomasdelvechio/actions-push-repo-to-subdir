@@ -9,9 +9,9 @@ LABEL com.github.actions.description="Automatically push repository content to a
 #LABEL com.github.actions.icon="package"
 #LABEL com.github.actions.color="purple"
 
-RUN apt update && \
-    apt upgrade -y && \
-    apt install git 
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y git 
 
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
