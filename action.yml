@@ -19,4 +19,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.github-username inputs.target-repository inputs.target-repo-subdir-name }}
+    - ${{ inputs.github-username }}
+    - ${{ inputs.target-repository }}
+    - ${{ inputs.target-repo-subdir-name }}
