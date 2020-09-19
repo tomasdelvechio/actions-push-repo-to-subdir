@@ -11,7 +11,8 @@ set -e
 GITHUB_USERNAME=$1
 TARGET_REPOSITORY_PATH=$2
 DIRNAME="$(basename $(dirname $TARGET_REPOSITORY_PATH))"
-SUBDIR_NAME="${3:-$DIRNAME}"
+LOWER_DIRNAME="$(echo $DIRNAME | tr '[:upper:]' '[:lower:]')"
+SUBDIR_NAME="${3:-$LOWER_DIRNAME}"
 REPO_SOURCE_PATH=$(pwd)
 
 git config --global user.email "tomasdelvechio-actions-syn-repos@example.org"
