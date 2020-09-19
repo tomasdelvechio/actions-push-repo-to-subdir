@@ -7,9 +7,9 @@ inputs:
     description: 'User of github'
     required: true
     #default: 'World'
-  target-repository:
-    description: "The fullname of repository (example: tomasdelvechio/actions-push-repo-to-subdir). Not include .git"
-    required: true
+  #target-repository:
+    #description: "The fullname of repository (example: tomasdelvechio/actions-push-repo-to-subdir). Not include .git"
+    #required: true
   target-repo-subdir-name:
     description: "(optional) Subdir name on target repo. Default is repo name in lower-case"
 #outputs:
@@ -20,5 +20,5 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.github-username }}
-    - ${{ inputs.target-repository }}
+    #- ${{ inputs.target-repository }}
     - ${{ inputs.target-repo-subdir-name }}
