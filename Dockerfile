@@ -1,4 +1,5 @@
-FROM ubuntu:latest
+#FROM ubuntu:latest
+FROM alpine:latest
 
 LABEL repository="https://github.com/tomasdelvechio/actions-push-repo-to-subdir"
 LABEL homepage="https://github.com/tomasdelvechio/actions-push-repo-to-subdir"
@@ -9,9 +10,12 @@ LABEL com.github.actions.description="Automatically push repository content to a
 #LABEL com.github.actions.icon="package"
 #LABEL com.github.actions.color="purple"
 
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y git 
+#RUN apt-get update && \
+#    apt-get upgrade -y && \
+#    apt-get install -y git 
+
+RUN apk add bash && \
+    apk add git
 
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
