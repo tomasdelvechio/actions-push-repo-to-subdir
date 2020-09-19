@@ -40,7 +40,7 @@ jobs:
         token: ${{ secrets.API_TOKEN_GITHUB }}
     - name: Sync the repo
       id: sync
-      uses: tomasdelvechio/actions-push-repo-to-subdir@v1.0.13
+      uses: tomasdelvechio/actions-push-repo-to-subdir@v1.2.0
       with:
         github-username: ##commit_github_username##
         target-subdir-name: ##subdir_name_on_target##
@@ -70,7 +70,7 @@ jobs:
         token: ${{ secrets.API_TOKEN_GITHUB }}
     - name: Sync the repo
       id: sync
-      uses:  tomasdelvechio/actions-push-repo-to-subdir@v1.0.13
+      uses:  tomasdelvechio/actions-push-repo-to-subdir@v1.2.0
       with:
         github-username: 'tomasdelvechio'
         target-subdir-name: 'slides'
