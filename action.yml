@@ -6,20 +6,12 @@ inputs:
   github-username:
     description: 'User of github'
     required: true
-    #default: 'World'
-  #target-repository:
-    #description: "The fullname of repository (example: tomasdelvechio/actions-push-repo-to-subdir). Not include .git"
-    #required: true
   target-subdir-name:
     description: "Subdir name on target repo"
     required: true
-#outputs:
-#  time: # id of output
-#    description: 'The time we greeted you'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.github-username }}
-    #- ${{ inputs.target-repository }}
     - ${{ inputs.target-subdir-name }}
