@@ -10,7 +10,7 @@ inputs:
   #target-repository:
     #description: "The fullname of repository (example: tomasdelvechio/actions-push-repo-to-subdir). Not include .git"
     #required: true
-  target-repo-subdir-name:
+  target-subdir-name:
     description: "Subdir name on target repo"
     required: true
 #outputs:
@@ -22,4 +22,4 @@ runs:
   args:
     - ${{ inputs.github-username }}
     #- ${{ inputs.target-repository }}
-    - ${{ inputs.target-repo-subdir-name }}
+    - ${{ inputs.target-subdir-name }}
